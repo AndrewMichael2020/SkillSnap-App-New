@@ -26,7 +26,9 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: Run tests
-        run: dotnet test --no-build --configuration Release --logger trx
+        run: |
+          dotnet test ./SkillSnap.Api/SkillSnap.Api.csproj --no-build --configuration Release --logger trx
+          dotnet test ./SkillSnap.Client.Tests/SkillSnap.Client.Tests.csproj --no-build --configuration Release --logger trx
 
       - name: Upload Test Results
         if: always()

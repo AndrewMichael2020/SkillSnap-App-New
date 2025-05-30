@@ -26,7 +26,7 @@ namespace SkillSnap.Api.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult<Skill> Add(Skill skill)
+        public ActionResult<Skill> Add([FromBody] Skill skill)
         {
             _context.Skills.Add(skill);
             _context.SaveChanges();
