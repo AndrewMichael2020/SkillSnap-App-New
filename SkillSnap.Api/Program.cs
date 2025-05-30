@@ -10,13 +10,12 @@ using SkillSnap.Api.Mapping;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services
-    .AddControllers();
+builder.Services.AddControllers();
 
-builder.Services
-    .AddDbContext<SkillSnapContext>(options =>
-        options.UseSqlite("Data Source=skillsnap.db"))
-    .AddAutoMapper(typeof(SkillSnapProfile));
+builder.Services.AddDbContext<SkillSnapContext>(options =>
+    options.UseSqlite("Data Source=skillsnap.db"));
+
+builder.Services.AddAutoMapper(typeof(SkillSnapProfile));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<SkillSnapContext>()
@@ -44,7 +43,7 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(jwtSecret)),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret)),
     };
 });
 
@@ -52,17 +51,15 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowClient", policy =>
-    {
-        policy.WithOrigins("https://localhost:5001")
-              .AllowAnyMethod()
-              .AllowAnyHeader();
-    });
+    options.AddPolicy("AllowClient",
+        policy => policy
+            .WithOrigins("https://ideal-capybara-5rwrpj4v66rf464-5003.app.github.dev")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials());
 });
 
 builder.Services.AddMemoryCache();
-
-// Add Swagger services
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -82,14 +79,12 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 var app = builder.Build();
 
-// Seed test data
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    TestDataSeeder.SeedAsync(services).Wait();
+    await TestDataSeeder.SeedAsync(services);
 }
 
-// Enable Swagger middleware
 app.UseSwagger();
 app.UseSwaggerUI();
 

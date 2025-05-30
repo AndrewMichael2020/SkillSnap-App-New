@@ -1,4 +1,41 @@
 @page "/skills"
+@inject HttpClient Http
+@using System.Net.Http.Json
 
 <h2>Skills</h2>
-<p>Skill list will appear here.</p>
+
+@if (skills == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (!skills.Any())
+{
+    <p>No skills found.</p>
+}
+else
+{
+    <ul>
+        @foreach (var skill in skills)
+        {
+            <li>
+                <strong>@skill.Name</strong> - @skill.Level
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private List<SkillDto>? skills;
+
+    protected override async Task OnInitializedAsync()
+    {
+        skills = await Http.GetFromJsonAsync<List<SkillDto>>("/api/Skills");
+    }
+
+    public class SkillDto
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Level { get; set; }
+    }
+}

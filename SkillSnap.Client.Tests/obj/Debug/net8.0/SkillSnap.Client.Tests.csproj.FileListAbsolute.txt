@@ -131,3 +131,8 @@
 /workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/obj/Debug/net8.0/SkillSnap.Client.Tests.pdb
 /workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/obj/Debug/net8.0/SkillSnap.Client.Tests.genruntimeconfig.cache
 /workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/obj/Debug/net8.0/ref/SkillSnap.Client.Tests.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/bin/Debug/net8.0/Microsoft.Extensions.Http.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/bin/Debug/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/bin/Debug/net8.0/System.Diagnostics.DiagnosticSource.dll
