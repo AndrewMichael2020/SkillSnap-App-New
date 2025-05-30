@@ -1,0 +1,78 @@
+@using Microsoft.AspNetCore.Components.Forms
+@using SkillSnap.Client.Services
+
+// Inject ProjectService
+@inject ProjectService ProjectService
+
+<h3>Project List</h3>
+
+@if (isLoading)
+{
+    <div class="spinner">Loading...</div>
+}
+else
+{
+    <EditForm Model="newProject" OnValidSubmit="AddProject">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <input @bind="newProject.Name" placeholder="Project Name" />
+        <ValidationMessage For="@(() => newProject.Name)" />
+
+        <input @bind="newProject.Description" placeholder="Project Description" />
+        <ValidationMessage For="@(() => newProject.Description)" />
+
+        <button type="submit">Add Project</button>
+    </EditForm>
+
+    <ul>
+        @if (projects != null)
+        {
+            @foreach (var project in projects)
+            {
+                <li>
+                    <strong>@project.Name</strong>: @project.Description
+                </li>
+            }
+        }
+    </ul>
+}
+
+@code {
+    private List<Project>? projects;
+    private Project newProject = new Project();
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        isLoading = true;
+        projects = await ProjectService.GetProjectsAsync();
+        isLoading = false;
+    }
+
+    private async Task AddProject()
+    {
+        isLoading = true;
+        await ProjectService.AddProjectAsync(newProject);
+        projects = await ProjectService.GetProjectsAsync(); // refresh list
+        newProject = new Project(); // reset form
+        isLoading = false;
+    }
+}
+
+<style>
+.spinner {
+    margin: 2em auto;
+    border: 4px solid #eee;
+    border-top: 4px solid #3b82f6;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    animation: spin 1s linear infinite;
+    display: block;
+}
+keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+</style>

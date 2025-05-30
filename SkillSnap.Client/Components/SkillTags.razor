@@ -1,0 +1,39 @@
+@code {
+    private List<string> skills = new()
+    {
+        "Expert Unicorn Wrangler",
+        "Banana Propulsion Engineering",
+        "Quantum Pancake Flipping",
+        "Hamster Motivation",
+        "Toaster Time Travel"
+        // Add more sample skills as needed
+    };
+}
+
+<div class="skill-tags">
+    @foreach (var skill in skills)
+    {
+        <span class="tag">@skill</span>
+    }
+</div>
+
+<style>
+.skill-tags {
+    margin-top: 12px;
+}
+.tag {
+    display: inline-block;
+    background: #e0e7ff;
+    color: #3730a3;
+    border-radius: 16px;
+    padding: 4px 12px;
+    margin: 4px 4px 0 0;
+    font-size: 0.95em;
+    font-weight: 500;
+    box-shadow: 1px 1px 4px #c7d2fe;
+    transition: background 0.2s;
+}
+.tag:hover {
+    background: #a5b4fc;
+}
+</style>

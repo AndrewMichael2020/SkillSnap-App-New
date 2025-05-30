@@ -1,0 +1,34 @@
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+
+@code {
+    private List<Project> projects = new()
+    {
+        new Project { Title = "Invisibility Cloak for Goldfish", Description = "Making goldfish disappear (from sight, not the bowl)." },
+        new Project { Title = "Banana-Powered Spaceship", Description = "First fruit-fueled journey to the moon. Slippery landings guaranteed." },
+        new Project { Title = "Self-Tying Shoelaces for Centipedes", Description = "Automating 100+ shoes at once. Centipedes rejoice!" }
+        // Add more sample projects as needed
+    };
+
+    private int totalCount => projects.Count;
+
+    private ValueTask<ItemsProviderResult<Project>> LoadProjects(ItemsProviderRequest request)
+    {
+        var items = projects.Skip(request.StartIndex).Take(request.Count).ToList();
+        return new ValueTask<ItemsProviderResult<Project>>(new ItemsProviderResult<Project>(items, totalCount));
+    }
+
+    private class Project
+    {
+        public string? Title { get; set; }
+        public string? Description { get; set; }
+    }
+}
+
+<Virtualize ItemsProvider="LoadProjects" ItemSize="48">
+    <ItemContent Context="project">
+        <div style="margin-bottom:16px;">
+            <strong>@project.Title</strong>
+            <div>@project.Description</div>
+        </div>
+    </ItemContent>
+</Virtualize>

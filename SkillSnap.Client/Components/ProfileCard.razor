@@ -1,0 +1,22 @@
+@code {
+    private PortfolioUser user = new PortfolioUser
+    {
+        Name = "Sir Laughsalot",
+        Bio = "Professional unicorn wrangler and part-time intergalactic pizza delivery expert.",
+        ProfileImageUrl = "https://placekitten.com/400/400"
+    };
+
+    // Placeholder class for demonstration; replace with DTO or shared model as needed.
+    private class PortfolioUser
+    {
+        public string? Name { get; set; }
+        public string? Bio { get; set; }
+        public string? ProfileImageUrl { get; set; }
+    }
+}
+
+<div class="profile-card" style="max-width:300px;border:1px solid #ccc;border-radius:8px;padding:16px;text-align:center;">
+    <img src="@user.ProfileImageUrl" alt="Profile image" style="width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:12px;" />
+    <h2>@user.Name</h2>
+    <p>@user.Bio</p>
+</div>

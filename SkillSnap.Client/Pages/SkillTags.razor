@@ -1,0 +1,13 @@
+@using SkillSnap.Client.Services
+
+// Inject SkillService
+@inject SkillService SkillService
+
+@code {
+    private List<Skill> skills;
+
+    protected override async Task OnInitializedAsync()
+    {
+        skills = await SkillService.GetSkillsAsync();
+    }
+}

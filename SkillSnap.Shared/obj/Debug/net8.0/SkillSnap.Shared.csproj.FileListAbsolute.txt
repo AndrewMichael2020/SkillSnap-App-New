@@ -1,0 +1,12 @@
+/workspaces/SkillSnap-App-New/SkillSnap.Shared/bin/Debug/net8.0/SkillSnap.Shared.deps.json
+/workspaces/SkillSnap-App-New/SkillSnap.Shared/bin/Debug/net8.0/SkillSnap.Shared.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Shared/bin/Debug/net8.0/SkillSnap.Shared.pdb
+/workspaces/SkillSnap-App-New/SkillSnap.Shared/obj/Debug/net8.0/SkillSnap.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/SkillSnap-App-New/SkillSnap.Shared/obj/Debug/net8.0/SkillSnap.Shared.AssemblyInfoInputs.cache
+/workspaces/SkillSnap-App-New/SkillSnap.Shared/obj/Debug/net8.0/SkillSnap.Shared.AssemblyInfo.cs
+/workspaces/SkillSnap-App-New/SkillSnap.Shared/obj/Debug/net8.0/SkillSnap.Shared.csproj.CoreCompileInputs.cache
+/workspaces/SkillSnap-App-New/SkillSnap.Shared/obj/Debug/net8.0/SkillSnap.Shared.sourcelink.json
+/workspaces/SkillSnap-App-New/SkillSnap.Shared/obj/Debug/net8.0/SkillSnap.Shared.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Shared/obj/Debug/net8.0/refint/SkillSnap.Shared.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Shared/obj/Debug/net8.0/SkillSnap.Shared.pdb
+/workspaces/SkillSnap-App-New/SkillSnap.Shared/obj/Debug/net8.0/ref/SkillSnap.Shared.dll
