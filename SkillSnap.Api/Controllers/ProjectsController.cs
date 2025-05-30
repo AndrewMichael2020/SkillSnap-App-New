@@ -1,9 +1,14 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.EntityFrameworkCore;
 using SkillSnap.Api.Data;
 using SkillSnap.Api.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SkillSnap.Api.Controllers
 {
@@ -12,16 +17,34 @@ namespace SkillSnap.Api.Controllers
     public class ProjectsController : ControllerBase
     {
         private readonly SkillSnapContext _context;
+        private readonly IMemoryCache _cache;
 
-        public ProjectsController(SkillSnapContext context)
+        public ProjectsController(SkillSnapContext context, IMemoryCache cache)
         {
             _context = context;
+            _cache = cache;
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Project>> GetAll()
+        public async Task<IActionResult> GetProjects()
         {
-            return Ok(_context.Projects.ToList());
+            if (!_cache.TryGetValue("projects", out List<Project>? projects))
+            {
+                Console.WriteLine("Cache miss: fetching from DB.");
+                var stopwatch = Stopwatch.StartNew();
+                projects = await _context.Projects
+                    .Include(p => p.Skills)
+                    .AsNoTracking()
+                    .ToListAsync();
+                stopwatch.Stop();
+                Console.WriteLine($"Request duration: {stopwatch.ElapsedMilliseconds}ms");
+                _cache.Set("projects", projects, TimeSpan.FromMinutes(5));
+            }
+            else
+            {
+                Console.WriteLine("Cache hit: served from memory.");
+            }
+            return Ok(projects);
         }
 
         [Authorize]
@@ -30,7 +53,8 @@ namespace SkillSnap.Api.Controllers
         {
             _context.Projects.Add(project);
             _context.SaveChanges();
-            return CreatedAtAction(nameof(GetAll), new { id = project.Id }, project);
+            _cache.Remove("projects"); // Invalidate cache on modification
+            return CreatedAtAction(nameof(GetProjects), new { id = project.Id }, project);
         }
 
         [Authorize(Roles = "Admin")]
@@ -43,6 +67,7 @@ namespace SkillSnap.Api.Controllers
 
             _context.Projects.Remove(project);
             _context.SaveChanges();
+            _cache.Remove("projects"); // Invalidate cache on modification
             return NoContent();
         }
     }

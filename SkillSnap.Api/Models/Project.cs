@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,5 +16,7 @@ namespace SkillSnap.Api.Models
 
         [ForeignKey("PortfolioUserId")]
         public PortfolioUser? User { get; set; }
+
+        public List<Skill> Skills { get; set; } = new();
     }
 }

@@ -57,3 +57,7 @@ build_metadata.AdditionalFiles.CssScope =
 [/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/SkillTags.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2tpbGxUYWdzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
+
+[/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/SomePage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU29tZVBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 

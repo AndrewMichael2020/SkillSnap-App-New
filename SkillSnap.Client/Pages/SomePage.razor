@@ -1,0 +1,4 @@
+@using SkillSnap.Client.Services
+@inject UserSessionService Session
+
+<p>Logged in as: @Session.UserId (Role: @Session.Role)</p>

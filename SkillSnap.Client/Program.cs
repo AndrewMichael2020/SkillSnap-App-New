@@ -16,6 +16,7 @@ builder.Services.AddScoped<SkillService>();
 builder.Services.AddBlazoredLocalStorage();
 
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<UserSessionService>();
 
 builder.Services.AddScoped(sp =>
 {
