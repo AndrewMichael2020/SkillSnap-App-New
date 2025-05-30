@@ -18,14 +18,17 @@ builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<UserSessionService>();
 
-builder.Services.AddScoped(sp =>
+builder.Services.AddScoped<AuthTokenHandler>();
+builder.Services.AddHttpClient("SkillSnapApi", client =>
 {
-    var localStorage = sp.GetRequiredService<ILocalStorageService>();
-    var http = new HttpClient(new AuthTokenHandler(localStorage))
-    {
-        BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
-    };
-    return http;
+    client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+})
+.AddHttpMessageHandler<AuthTokenHandler>();
+
+// Optionally, set the default HttpClient to use this named client:
+builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("SkillSnapApi"));
+
+await builder.Build().RunAsync();
 });
 
 await builder.Build().RunAsync();

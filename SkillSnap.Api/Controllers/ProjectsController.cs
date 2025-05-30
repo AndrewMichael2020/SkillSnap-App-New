@@ -29,13 +29,14 @@ namespace SkillSnap.Api.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetProjects()
         {
-            // Allow anonymous only in development
-            if (!_env.IsDevelopment() && !User.Identity.IsAuthenticated)
-            {
-                return Unauthorized();
-            }
+            // Remove this block to always allow anonymous access:
+            // if (!_env.IsDevelopment() && !User.Identity.IsAuthenticated)
+            // {
+            //     return Unauthorized();
+            // }
             try
             {
                 if (!_cache.TryGetValue("projects", out List<Project>? projects))

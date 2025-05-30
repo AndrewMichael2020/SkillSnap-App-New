@@ -18,8 +18,8 @@ else
         @foreach (var project in projects)
         {
             <li>
-                <strong>@project.name</strong><br />
-                <span>@project.description</span>
+                <strong>@project.Name</strong><br />
+                <span>@project.Description</span>
             </li>
         }
     </ul>
@@ -35,8 +35,8 @@ else
 
     public class ProjectDto
     {
-        public int id { get; set; }
-        public string? name { get; set; }
-        public string? description { get; set; }
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
     }
 }
