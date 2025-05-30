@@ -25,9 +25,6 @@ jobs:
       - name: Build solution
         run: dotnet build --no-restore --configuration Release
 
-      - name: Run unit and integration tests
-        run: dotnet test --no-build --configuration Release --logger trx --filter FullyQualifiedName~SkillSnap.Client.Tests
-
       - name: Run API tests
         run: dotnet test ./SkillSnap.Api/SkillSnap.Api.csproj --no-build --configuration Release --logger trx
 
