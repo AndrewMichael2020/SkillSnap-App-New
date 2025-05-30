@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
 using SkillSnap.Shared;
-using SkillSnap.Api; // Add this to resolve SkillSnap.Api.Program
+using SkillSnap.Api;
+using System;
 
 namespace SkillSnap.Api.IntegrationTests
 {
@@ -21,14 +22,19 @@ namespace SkillSnap.Api.IntegrationTests
         [Fact]
         public async Task Register_Login_AuthorizeFlow_Works()
         {
-            // Register user
-            var registerDto = new RegisterDto { Email = "testuser@example.com", Password = "Test123!" };
+            // Register user with unique email to avoid conflicts
+            var uniqueEmail = $"testuser_{Guid.NewGuid()}@example.com";
+            var registerDto = new RegisterDto { Email = uniqueEmail, Password = "Test123!" };
             var registerResponse = await _client.PostAsJsonAsync("/api/auth/register", registerDto);
+            var registerContent = await registerResponse.Content.ReadAsStringAsync();
+            Console.WriteLine($"Register response: {registerContent}");
             registerResponse.EnsureSuccessStatusCode();
 
             // Login user
-            var loginDto = new LoginDto { Email = "testuser@example.com", Password = "Test123!" };
+            var loginDto = new LoginDto { Email = uniqueEmail, Password = "Test123!" };
             var loginResponse = await _client.PostAsJsonAsync("/api/auth/login", loginDto);
+            var loginContent = await loginResponse.Content.ReadAsStringAsync();
+            Console.WriteLine($"Login response: {loginContent}");
             loginResponse.EnsureSuccessStatusCode();
             var loginResult = await loginResponse.Content.ReadFromJsonAsync<AuthResult>();
             Assert.False(string.IsNullOrEmpty(loginResult?.Token));
@@ -39,11 +45,15 @@ namespace SkillSnap.Api.IntegrationTests
             // Call [Authorize] route with token (should succeed or return 200/201/204)
             var postSkill = new { Name = "IntegrationTestSkill", Level = "Test" };
             var authResponse = await _client.PostAsJsonAsync("/api/skills", postSkill);
+            var authContent = await authResponse.Content.ReadAsStringAsync();
+            Console.WriteLine($"Authorized POST /api/skills response: {authContent}");
             Assert.True(authResponse.IsSuccessStatusCode);
 
             // Remove token and try again (should get 401)
             _client.DefaultRequestHeaders.Authorization = null;
             var unauthorizedResponse = await _client.PostAsJsonAsync("/api/skills", postSkill);
+            var unauthContent = await unauthorizedResponse.Content.ReadAsStringAsync();
+            Console.WriteLine($"Unauthorized POST /api/skills response: {unauthContent}");
             Assert.Equal(System.Net.HttpStatusCode.Unauthorized, unauthorizedResponse.StatusCode);
         }
 
