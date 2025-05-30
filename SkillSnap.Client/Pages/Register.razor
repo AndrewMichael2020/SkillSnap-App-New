@@ -1,0 +1,44 @@
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components
+@using SkillSnap.Client.Services // Add this to resolve AuthService
+@using SkillSnap.Shared // Add this to use RegisterDto
+@inject AuthService AuthService
+
+<EditForm Model="@registerModel" OnValidSubmit="HandleRegister">
+    <InputText @bind-Value="registerModel.Email" placeholder="Email" />
+    <InputText @bind-Value="registerModel.Password" type="password" placeholder="Password" />
+    <button type="submit">Register</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <div>@message</div>
+}
+
+@code {
+    private RegisterModel registerModel = new();
+    private string? message;
+
+    private async Task HandleRegister()
+    {
+        try
+        {
+            await AuthService.RegisterAsync(new RegisterDto
+            {
+                Email = registerModel.Email,
+                Password = registerModel.Password
+            });
+            message = "Registration successful!";
+        }
+        catch (Exception ex)
+        {
+            message = $"Registration failed: {ex.Message}";
+        }
+    }
+
+    public class RegisterModel
+    {
+        public string? Email { get; set; }
+        public string? Password { get; set; }
+    }
+}

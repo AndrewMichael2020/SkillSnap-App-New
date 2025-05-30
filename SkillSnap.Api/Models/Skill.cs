@@ -7,12 +7,12 @@ namespace SkillSnap.Api.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Level { get; set; }
+        public string? Name { get; set; }
+        public string? Level { get; set; }
 
         public int PortfolioUserId { get; set; }
 
         [ForeignKey("PortfolioUserId")]
-        public PortfolioUser User { get; set; }
+        public PortfolioUser? User { get; set; }
     }
 }

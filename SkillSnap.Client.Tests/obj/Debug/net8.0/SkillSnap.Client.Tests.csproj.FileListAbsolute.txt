@@ -6,6 +6,7 @@
 /workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/bin/Debug/net8.0/SkillSnap.Client.Tests.runtimeconfig.json
 /workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/bin/Debug/net8.0/SkillSnap.Client.Tests.dll
 /workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/bin/Debug/net8.0/SkillSnap.Client.Tests.pdb
+/workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/bin/Debug/net8.0/Blazored.LocalStorage.dll
 /workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/bin/Debug/net8.0/Castle.Core.dll
 /workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/bin/Debug/net8.0/Microsoft.AspNetCore.Authorization.dll
 /workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/bin/Debug/net8.0/Microsoft.AspNetCore.Components.dll

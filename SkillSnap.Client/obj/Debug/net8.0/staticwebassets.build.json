@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8+U9oX+MOLevEtAFH5a+O6rdIMI2zw7tb/bYXguLgX4=",
+  "Hash": "PdXRIGh8U648DEsnGnv/V39pPNkmVljpOkB0oh1Dbgk=",
   "Source": "SkillSnap.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -45,6 +45,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/codespace/.nuget/packages/microsoft.aspnetcore.components.webassembly/8.0.0/build/net8.0/blazor.webassembly.js"
+    },
+    {
+      "Identity": "/workspaces/SkillSnap-App-New/SkillSnap.Client/bin/Debug/net8.0/wwwroot/_framework/Blazored.LocalStorage.wasm",
+      "SourceId": "SkillSnap.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "/workspaces/SkillSnap-App-New/SkillSnap.Client/bin/Debug/net8.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.LocalStorage.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/workspaces/SkillSnap-App-New/SkillSnap.Client/obj/Debug/net8.0/webcil/Blazored.LocalStorage.wasm"
     },
     {
       "Identity": "/workspaces/SkillSnap-App-New/SkillSnap.Client/bin/Debug/net8.0/wwwroot/_framework/Castle.Core.wasm",
@@ -8842,6 +8861,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/workspaces/SkillSnap-App-New/SkillSnap.Client/bin/Debug/net8.0/wwwroot/_framework/System.IO.FileSystem.DriveInfo.wasm"
+    },
+    {
+      "Identity": "/workspaces/SkillSnap-App-New/SkillSnap.Client/obj/Debug/net8.0/compressed/nj2651ecgq.gz",
+      "SourceId": "SkillSnap.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "/workspaces/SkillSnap-App-New/SkillSnap.Client/bin/Debug/net8.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.LocalStorage.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/workspaces/SkillSnap-App-New/SkillSnap.Client/bin/Debug/net8.0/wwwroot/_framework/Blazored.LocalStorage.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/workspaces/SkillSnap-App-New/SkillSnap.Client/bin/Debug/net8.0/wwwroot/_framework/Blazored.LocalStorage.wasm"
     },
     {
       "Identity": "/workspaces/SkillSnap-App-New/SkillSnap.Client/obj/Debug/net8.0/compressed/nowmggb3o7.gz",

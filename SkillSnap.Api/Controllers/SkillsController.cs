@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SkillSnap.Api.Data;
 using SkillSnap.Api.Models;
@@ -23,12 +24,26 @@ namespace SkillSnap.Api.Controllers
             return Ok(_context.Skills.ToList());
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult<Skill> Add(Skill skill)
         {
             _context.Skills.Add(skill);
             _context.SaveChanges();
             return CreatedAtAction(nameof(GetAll), new { id = skill.Id }, skill);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("{id}")]
+        public ActionResult DeleteSkill(int id)
+        {
+            var skill = _context.Skills.Find(id);
+            if (skill == null)
+                return NotFound();
+
+            _context.Skills.Remove(skill);
+            _context.SaveChanges();
+            return NoContent();
         }
     }
 }

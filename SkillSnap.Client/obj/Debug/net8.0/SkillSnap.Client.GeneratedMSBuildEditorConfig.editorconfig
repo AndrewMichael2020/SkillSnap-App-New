@@ -42,8 +42,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/ProjectList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdExpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/SkillTags.razor]

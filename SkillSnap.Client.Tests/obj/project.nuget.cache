@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "OcRta89TJH8=",
+  "dgSpecHash": "FJiPpjUD02Q=",
   "success": true,
   "projectFilePath": "/workspaces/SkillSnap-App-New/SkillSnap.Client.Tests/SkillSnap.Client.Tests.csproj",
   "expectedPackageFiles": [
+    "/home/codespace/.nuget/packages/blazored.localstorage/4.5.0/blazored.localstorage.4.5.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
     "/home/codespace/.nuget/packages/microsoft.aspnetcore.authorization/8.0.0/microsoft.aspnetcore.authorization.8.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/microsoft.aspnetcore.components/8.0.0/microsoft.aspnetcore.components.8.0.0.nupkg.sha512",

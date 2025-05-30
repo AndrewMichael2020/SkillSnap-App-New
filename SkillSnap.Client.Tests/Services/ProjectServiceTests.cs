@@ -9,7 +9,7 @@ using Moq;
 using Moq.Protected;
 using Xunit;
 using SkillSnap.Client.Services;
-using Project = SkillSnap.Client.Services.ProjectService.Project;
+using Project = SkillSnap.Client.Services.Project;
 
 namespace SkillSnap.Client.Tests.Services
 {
