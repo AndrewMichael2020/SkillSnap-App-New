@@ -42,6 +42,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -50,8 +58,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdExpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/Projects.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/Skills.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2tpbGxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/SkillTags.razor]
@@ -60,4 +76,12 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/workspaces/SkillSnap-App-New/SkillSnap.Client/Pages/SomePage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU29tZVBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/workspaces/SkillSnap-App-New/SkillSnap.Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/workspaces/SkillSnap-App-New/SkillSnap.Client/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

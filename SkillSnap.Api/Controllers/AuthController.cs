@@ -55,7 +55,9 @@ namespace SkillSnap.Api.Controllers
 
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
+            {
                 return Unauthorized("Invalid credentials");
+            }
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
             if (!result.Succeeded)
@@ -70,13 +72,15 @@ namespace SkillSnap.Api.Controllers
             };
 
             var jwtKey = _configuration["Jwt:Key"];
+            var jwtSecret = _configuration["Jwt:Secret"];
             var jwtIssuer = _configuration["Jwt:Issuer"];
             var jwtAudience = _configuration["Jwt:Audience"];
+            if (string.IsNullOrEmpty(jwtSecret) || string.IsNullOrEmpty(jwtIssuer) || string.IsNullOrEmpty(jwtAudience))
+            {
+                throw new Exception("JWT configuration is missing. Please check Jwt:Secret, Jwt:Issuer, and Jwt:Audience in your appsettings.json.");
+            }
 
-            if (string.IsNullOrEmpty(jwtKey) || string.IsNullOrEmpty(jwtIssuer) || string.IsNullOrEmpty(jwtAudience))
-                return StatusCode(500, "JWT configuration is missing.");
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(jwtSecret));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(

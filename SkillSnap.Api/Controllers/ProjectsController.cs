@@ -9,6 +9,7 @@ using System.Linq;
 using System;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Hosting;
 
 namespace SkillSnap.Api.Controllers
 {
@@ -18,33 +19,49 @@ namespace SkillSnap.Api.Controllers
     {
         private readonly SkillSnapContext _context;
         private readonly IMemoryCache _cache;
+        private readonly IWebHostEnvironment _env;
 
-        public ProjectsController(SkillSnapContext context, IMemoryCache cache)
+        public ProjectsController(SkillSnapContext context, IMemoryCache cache, IWebHostEnvironment env)
         {
             _context = context;
             _cache = cache;
+            _env = env;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetProjects()
         {
-            if (!_cache.TryGetValue("projects", out List<Project>? projects))
+            // Allow anonymous only in development
+            if (!_env.IsDevelopment() && !User.Identity.IsAuthenticated)
             {
-                Console.WriteLine("Cache miss: fetching from DB.");
-                var stopwatch = Stopwatch.StartNew();
-                projects = await _context.Projects
-                    .Include(p => p.Skills)
-                    .AsNoTracking()
-                    .ToListAsync();
-                stopwatch.Stop();
-                Console.WriteLine($"Request duration: {stopwatch.ElapsedMilliseconds}ms");
-                _cache.Set("projects", projects, TimeSpan.FromMinutes(5));
+                return Unauthorized();
             }
-            else
+            try
             {
-                Console.WriteLine("Cache hit: served from memory.");
+                if (!_cache.TryGetValue("projects", out List<Project>? projects))
+                {
+                    Console.WriteLine("Cache miss: fetching from DB.");
+                    var stopwatch = Stopwatch.StartNew();
+                    projects = await _context.Projects
+                        .Include(p => p.Skills)
+                        .AsNoTracking()
+                        .ToListAsync();
+                    stopwatch.Stop();
+                    Console.WriteLine($"Request duration: {stopwatch.ElapsedMilliseconds}ms");
+                    _cache.Set("projects", projects, TimeSpan.FromMinutes(5));
+                }
+                else
+                {
+                    Console.WriteLine("Cache hit: served from memory.");
+                }
+                return Ok(projects);
             }
-            return Ok(projects);
+            catch (Exception ex)
+            {
+                // Log the error for debugging
+                Console.WriteLine($"Error in GET /api/Projects: {ex.Message}");
+                return StatusCode(500, "An error occurred while retrieving projects.");
+            }
         }
 
         [Authorize]

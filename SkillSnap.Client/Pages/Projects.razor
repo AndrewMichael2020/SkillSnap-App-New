@@ -1,0 +1,42 @@
+@page "/projects"
+@inject HttpClient Http
+@using System.Net.Http.Json
+
+<h2>Projects</h2>
+
+@if (projects == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (!projects.Any())
+{
+    <p>No projects found.</p>
+}
+else
+{
+    <ul>
+        @foreach (var project in projects)
+        {
+            <li>
+                <strong>@project.name</strong><br />
+                <span>@project.description</span>
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private List<ProjectDto>? projects;
+
+    protected override async Task OnInitializedAsync()
+    {
+        projects = await Http.GetFromJsonAsync<List<ProjectDto>>("/api/Projects");
+    }
+
+    public class ProjectDto
+    {
+        public int id { get; set; }
+        public string? name { get; set; }
+        public string? description { get; set; }
+    }
+}

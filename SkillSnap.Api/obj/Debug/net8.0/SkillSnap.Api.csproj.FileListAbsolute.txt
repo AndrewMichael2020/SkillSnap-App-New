@@ -521,3 +521,9 @@
 /workspaces/SkillSnap-App-New/SkillSnap.Api/obj/Debug/net8.0/SkillSnap.Api.pdb
 /workspaces/SkillSnap-App-New/SkillSnap.Api/obj/Debug/net8.0/SkillSnap.Api.genruntimeconfig.cache
 /workspaces/SkillSnap-App-New/SkillSnap.Api/obj/Debug/net8.0/ref/SkillSnap.Api.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Api/bin/Debug/net8.0/appsettings.json
+/workspaces/SkillSnap-App-New/SkillSnap.Api/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/workspaces/SkillSnap-App-New/SkillSnap.Api/obj/Debug/net8.0/SkillSnap.Api.MvcApplicationPartsAssemblyInfo.cs

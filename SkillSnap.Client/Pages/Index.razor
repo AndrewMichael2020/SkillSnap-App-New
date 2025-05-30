@@ -1,0 +1,24 @@
+@page "/"
+@using Microsoft.AspNetCore.Components.Routing
+
+<h1>Welcome to SkillSnap!</h1>
+<p>This is your Blazor WebAssembly client home page. 🎉</p>
+
+<hr />
+
+<h3>Quick Links</h3>
+<nav>
+    <NavLink href="/" Match="NavLinkMatch.All">Home</NavLink> |
+    <NavLink href="/projects">Projects</NavLink> |
+    <NavLink href="/skills">Skills</NavLink> |
+    <NavLink href="/fetchdata">Fetch Data Example</NavLink>
+</nav>
+
+<hr />
+
+<h3>Try the Counter!</h3>
+<Counter />
+
+@code {
+    // You can add more interactive logic here if needed.
+}

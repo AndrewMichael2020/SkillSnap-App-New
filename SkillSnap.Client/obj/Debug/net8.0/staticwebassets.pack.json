@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
     },
     {
+      "Id": "/workspaces/SkillSnap-App-New/SkillSnap.Client/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.SkillSnap.Client.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

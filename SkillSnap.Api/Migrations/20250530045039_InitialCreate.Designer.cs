@@ -11,8 +11,8 @@ using SkillSnap.Api.Data;
 namespace SkillSnap.Api.Migrations
 {
     [DbContext(typeof(SkillSnapContext))]
-    [Migration("20250530035932_SyncSkillModel")]
-    partial class SyncSkillModel
+    [Migration("20250530045039_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -239,16 +239,18 @@ namespace SkillSnap.Api.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PortfolioUserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Title")
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int?>("PortfolioUserId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -267,9 +269,10 @@ namespace SkillSnap.Api.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PortfolioUserId")
+                    b.Property<int?>("PortfolioUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("ProjectId")
@@ -339,9 +342,7 @@ namespace SkillSnap.Api.Migrations
                 {
                     b.HasOne("SkillSnap.Api.Models.PortfolioUser", "User")
                         .WithMany("Projects")
-                        .HasForeignKey("PortfolioUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PortfolioUserId");
 
                     b.Navigation("User");
                 });
@@ -350,9 +351,7 @@ namespace SkillSnap.Api.Migrations
                 {
                     b.HasOne("SkillSnap.Api.Models.PortfolioUser", "User")
                         .WithMany("Skills")
-                        .HasForeignKey("PortfolioUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PortfolioUserId");
 
                     b.HasOne("SkillSnap.Api.Models.Project", null)
                         .WithMany("Skills")

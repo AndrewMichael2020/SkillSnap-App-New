@@ -1,12 +1,20 @@
 {
   "Version": 1,
-  "Hash": "PdXRIGh8U648DEsnGnv/V39pPNkmVljpOkB0oh1Dbgk=",
+  "Hash": "wcGcARi8U1VNQtcLpeUMeCAlvg+H4GCmvbh3spzrndc=",
   "Source": "SkillSnap.Client",
   "BasePath": "/",
   "Mode": "Root",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "SkillSnap.Client/wwwroot",
+      "Source": "SkillSnap.Client",
+      "ContentRoot": "/workspaces/SkillSnap-App-New/SkillSnap.Client/wwwroot/",
+      "BasePath": "/",
+      "Pattern": "**"
+    }
+  ],
   "Assets": [
     {
       "Identity": "/workspaces/SkillSnap-App-New/SkillSnap.Client/bin/Debug/net8.0/wwwroot/_framework/blazor.boot.json",
@@ -11027,6 +11035,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/workspaces/SkillSnap-App-New/SkillSnap.Client/bin/Debug/net8.0/wwwroot/_framework/ko/Microsoft.TestPlatform.CommunicationUtilities.resources.wasm"
+    },
+    {
+      "Identity": "/workspaces/SkillSnap-App-New/SkillSnap.Client/wwwroot/index.html",
+      "SourceId": "SkillSnap.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "/workspaces/SkillSnap-App-New/SkillSnap.Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.html"
     }
   ]
 }
